@@ -44,28 +44,38 @@ Consola H2: `http://localhost:8080/h2-console` (JDBC URL: `jdbc:h2:mem:tiendadb`
 ## Ejecutar con Docker
 
 ```bash
-docker build -t TU_USUARIO/tienda-eventos:1.0.0 .
-docker run -p 8080:8080 TU_USUARIO/tienda-eventos:1.0.0
+docker build -t tienda-eventos:1.0.0 .
+docker run -p 8080:8080 tienda-eventos:1.0.0
 ```
 
 ## Desplegar en Kubernetes
 
+La imagen ya está publicada públicamente en Docker Hub:
+[`robotman28/tienda-eventos:1.0.0`](https://hub.docker.com/r/robotman28/tienda-eventos)
+
+Para desplegarla directamente, sin necesidad de construir nada:
+
 ```bash
-# 1. Publicar la imagen en un registro (Docker Hub, GHCR, etc.)
-docker push TU_USUARIO/tienda-eventos:1.0.0
-
-# 2. Editar k8s/03-deployment.yaml y poner el nombre real de la imagen
-
-# 3. Aplicar los manifiestos
-kubectl apply -f k8s/01-configmap.yaml
-kubectl apply -f k8s/02-secret.yaml
-kubectl apply -f k8s/03-deployment.yaml
-kubectl apply -f k8s/04-service.yaml
-
-# 4. Ver el estado
+kubectl apply -f k8s/
 kubectl get pods
-kubectl get svc tienda-eventos-service
 ```
 
+## Integrantes del equipo
+
+| Nombre completo | Número de carnet |
+|---|---|
+| _(WILLIAM AARÓN PERALTA CRUZ)_ | _(PC210574)_ |
+| _(DELMY BEATRIZ GONZÁLEZ ARAGÓN)_ | _(GA252427)_ |
+| _(ROBERTO ANTONIO CABRERA NAVAS)_ | _(CN233178)_ |
+| _(HELEN VERÓNICA PORTILLO RODRÍGUEZ)_ | _(PR230742)_ |
+
+## Enlaces de la entrega
+
+- **Repositorio:** _(https://github.com/Dark-Side-Ghost/tienda-eventos.git)_
+- **Video de exposición:** _()_
+- **Video demostrativo:** _()_
+
 ## Licencia
+
 Proyecto académico - Universidad Don Bosco - Investigación Aplicada 2 (DWF404).
+
