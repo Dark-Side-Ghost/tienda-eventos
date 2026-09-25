@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tienda-eventos-config
+data:
+  # Variable de configuracion externa: cambia el nombre visible de la app
+  # sin tener que reconstruir la imagen Docker.
+  APP_NOMBRE: "tienda-eventos-prod"

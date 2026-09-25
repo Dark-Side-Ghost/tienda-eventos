@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tienda-eventos-deployment
+  labels:
+    app: tienda-eventos
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tienda-eventos
+  template:
+    metadata:
+      labels:
+        app: tienda-eventos
+    spec:
+      containers:
+        - name: tienda-eventos
+          image: robotman28/tienda-eventos:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: tienda-eventos-config
+            - secretRef:
+                name: tienda-eventos-secret
+          # readinessProbe: indica cuando el pod ya esta listo para recibir trafico
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          # livenessProbe: si falla varias veces, Kubernetes reinicia el pod
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 15
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
