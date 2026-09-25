@@ -73,7 +73,7 @@ kubectl get pods
 
 - **Repositorio:** _(https://github.com/Dark-Side-Ghost/tienda-eventos.git)_
 - **Video de exposición:** _(https://drive.google.com/file/d/1pMGmmtjcNRpQxzu5zDWEiYKleiULcEy0/view?usp=drivesdk)_
-- **Video demostrativo:** _()_
+- **Video demostrativo:** _(https://drive.google.com/file/d/1ieY7StcIQ3ON8gGlttbMIXicWWsylQkT/view?usp=drivesdk)_
 
 ## Licencia
 
